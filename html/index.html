@@ -43,7 +43,7 @@
                                     <span class="tweet__info__user__name">{{user.screen_name}}</span>
                                     <a href="{{user.url}}">@{{user.name}}</a>
                                 </div>
-                                <span class="tweet__info__user__date">{{created_at}}</span>
+                                <span class="tweet__info__user__date">{{created_at_pretty}}</span>
                             </div>
                             <div class="tweet__content">
                                 {{text}}
@@ -60,6 +60,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="scripts/jquery-1.7.1.min.js"><\/script>')</script>
         <script src="scripts/mustache.min.js"></script>
+        <script src="scripts/pretty.min.js"></script>
         <script src="scripts/data.js"></script>
         <script src="scripts/main.js"></script>
     </body>

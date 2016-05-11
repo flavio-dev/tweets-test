@@ -2148,14 +2148,23 @@ var dataMangement = function() {
     ];
 
 
+    var dateIntoPrettyDate = function(tweets) {
+        tweets.forEach(function(tweet) {
+            var dateTransformed = prettyDate(tweet.created_at);
+            tweet.created_at_pretty = dateTransformed;
+        });
 
+        return tweets;
+    }
 
     var getAllTweets = function() {
         return data;
     }
 
     var getLastNTweets = function(n) {
-        return data.slice(0, n);
+        var lastNTweets = data.slice(0, n);
+        lastNTweets = dateIntoPrettyDate(lastNTweets);
+        return lastNTweets;
     }
 
     return {

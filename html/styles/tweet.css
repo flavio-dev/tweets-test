@@ -1,6 +1,7 @@
 /* style for the tweets */
 
 .tweet {
+	border-bottom: #666 1px solid;
 	display: flex;
 	padding: 20px;
 }
