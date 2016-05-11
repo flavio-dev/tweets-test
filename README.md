@@ -92,9 +92,9 @@ I pass a list of tweets using *slice*, which with arrays of object still **refer
 
 I created there 2 main functions: *controller* and *view*.
 
-- controller only talk to the view with the data returned by the model.
+- controller only talks to the view with the data returned by the model.
 
-- view only displays what the controller passed to it in a container.
+- view only displays in a container what the controller passed on to it.
 
 I declare my jQuery variables with a **$** in front of it:
 
