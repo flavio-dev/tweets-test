@@ -1,0 +1,41 @@
+/* style for the tweets */
+
+.tweet {
+	display: flex;
+	padding: 20px;
+}
+
+.tweet__profile-pic {
+	height: 48px;
+	min-width: 48px;
+}
+
+.tweet__container {
+	margin-left: 15px;
+	width: 100%;
+}
+
+.tweet__info {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3px;
+}
+
+.tweet__info__user__name {
+	font-weight: bold;
+}
+
+.tweet__info a {
+	color: #666666;
+	text-decoration: none;
+}
+
+.tweet__info__user__date {
+	font-style: italic;
+}
+
+@media all and (min-width: 600px) {
+	.tweet {
+		align-items: center;
+	}
+}

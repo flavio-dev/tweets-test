@@ -20,11 +20,7 @@ var view = function() {
 
         var template = $('#template').html();
         Mustache.parse(template);
-
-        console.log(template);
-
-        var output = Mustache.render(template, listOfTweets);
-        $container.html(output);
+        $container.html(Mustache.render(template, listOfTweets));
     }
 
     return {
