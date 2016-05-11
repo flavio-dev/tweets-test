@@ -1,0 +1,225 @@
+/*
+    Document   : styles.css
+    Author     : Paul Cooper
+    Description: Front End Development Test
+
+    1. CSS Reset
+    2. Base Styles
+    3. Layout
+    4. Header
+    5. Content
+    6. Tweets
+
+*/
+
+/* 1. CSS Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 0.75m;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
+:focus {
+	outline: 0;
+}
+
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 2. Base Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #555;
+    background: #EEE url('../images/bg-tile.png') repeat-x;
+}
+
+/* 3. Layout */
+
+#wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 4. Header */
+
+#header {
+    position: relative;
+    z-index: 2;
+    height: 100px;
+}
+
+#header a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#header h1 a {
+    position: absolute;
+    top: 33px;
+    left: 20px;
+    background: transparent url('../images/logo.png') no-repeat 50% 50%;
+    width: 133px;
+    height: 34px;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+#header nav .toggle {
+    position: absolute;
+    top: 41px;
+    right: 20px;
+    background: transparent url('../images/menu-toggle.png') no-repeat 50% 50%;
+    width: 30px;
+    height: 17px;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+#header nav.expanded ul {
+    display: block;
+}
+
+#header nav ul {
+    display: none;
+    background: #1CADE9;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+#header nav ul li a {
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+#header nav ul li a:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* 5. Content */
+
+#content {
+    background: #FFF;
+    position: relative;
+    z-index: 1;
+}
+
+/* 6. Tweets */
+
+/* 6. Media Queries */
+
+/* i. Desktop */
+
+@media all and (min-width: 600px) {
+
+    /* 1. CSS Reset */
+
+    /* 2. Base Styles */
+
+    /* 3. Layout */
+
+    /* 4. Header */
+
+    #header nav .toggle {
+        display: none;
+    }
+
+    #header nav ul {
+        display: block;
+        width: auto;
+        box-shadow: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        background: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #header nav ul li {
+        float: left;
+        display: inline-block;
+    }
+
+    #header nav ul li a {
+        background: none;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 100px;
+        margin: 0 10px 0 0;
+        padding: 0 10px;
+    }
+
+    #header nav ul li a:hover {
+        background: none;
+        text-decoration: underline;
+    }
+
+    /* 5. Content */
+
+    /* 6. Tweet */
+
+}
+
+/* ii. High DPI */
+
+@media all and (-webkit-min-device-pixel-ratio: 2),
+       all and (min--moz-device-pixel-ratio: 2),
+       all and (-o-min-device-pixel-ratio: 2/1),
+       all and (min-device-pixel-ratio: 2) {
+
+    #header h1 a {
+        background-image: url('../images/logo-2x.png');
+        background-size: 133px 34px;
+    }
+
+    #header nav .toggle {
+        background-image: url('../images/menu-toggle-2x.png');
+        background-size: 30px 17px;
+    }
+
+}
