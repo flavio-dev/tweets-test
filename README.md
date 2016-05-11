@@ -55,7 +55,7 @@ I also structure my rules in the order they appear in the DOM. And all propertie
 
 ### HTML
 
-Not much to say here, I added my new style and my libraries. I made sure the script tag containing my template was going to be overwritten once I was going to render my list of tweets. Also I decided to add data.js directly in the list of JS to be loaded. In a more realistically world that JSON would have come from server (which I could have stub/simulate) but for the purpose of this exercise, I simplified the load of the data object but just referencing the .js file in the HTML.
+Not much to say here, I added my new style and my libraries. I made sure the script tag containing my template was going to be overwritten once I was going to render my list of tweets. Also I decided to add data.js directly in the list of JS to be loaded. In a more realistically world, the JSON would have come from server (which I could have stub/simulate) but for the purpose of this exercise, I simplified the load of the data object but just referencing the .js file in the HTML.
 
 ### JS
 
@@ -67,7 +67,8 @@ I did try some sort of MVC approach. This is far from perfect (first *controller
 
 - data.js
 
-I wanted to create an interface to return the list of tweets so it will be cleaner and a bit more like how it would be with a modular approach. At first I passed the data object in the instantiation of the closure but then I changed it and put it in the closure directly, just so it became out of golbal scope. As *model* is meant to deal with the state of the data, I also modify tweet objects in this file by adding the new property *created_at_pretty* .
+I wanted to create an interface to return the list of tweets so it will be cleaner and a bit more like how it would be with a modular approach. At first I passed the data object in the instantiation of the closure but then I changed it and put it in the closure directly, to remove it from the global scope. As *model* is meant to deal with the state of the data, I also modify tweet objects in this file by adding the new property *created_at_pretty*.
+
 Also, I modify directly the data object with *dateIntoPrettyDate*. Basically this is not great:
 ```js
 var dateIntoPrettyDate = function(tweets) {
@@ -85,15 +86,15 @@ var getLastNTweets = function(n) {
     return lastNTweets;
 }
 ```
-I pass a list of tweets using *slice*, which with arrays of object still **refer** to the actual objects in data. So that *each* modify directly the data object. There is no need for those returns... For something like this, I could have picked a sublist of tweets as a copy and manipulate it independently from the source of truth data object. My approach is more to modify the data object alongside the display of the tweets on the screen. So if we need to refer to *created_at_pretty* at a later stage the object data is already modified and contains it.
+I pass a list of tweets using *slice*, which with arrays of object still **refer** to the actual objects in data. So that *each* modify directly the data object. There is no need for those returns... For something like this, I could have picked a sublist of tweets as a copy and manipulate it independently from the source of truth data object. My approach was more to modify the data object alongside the display of the tweets on the screen. So if we need to refer to *created_at_pretty* at a later stage the object data is already modified and contains it.
 
 - main.js
 
 I created there 2 main functions: *controller* and *view*.
 
-    - controller only talk to the view with the data returned by the model.
+- controller only talk to the view with the data returned by the model.
 
-    - view only displays what the controller passed to it in a container.
+- view only displays what the controller passed to it in a container.
 
 I declare my jQuery variables with a **$** in front of it:
 
@@ -106,7 +107,7 @@ This is to differentiate quickly in the file which variables are referring to jQ
 
 - Improvements
 
-Retrospectively now, and given the date display interaction that I would have had to work on later on, maybe another approach than mustache could have also worked. I think the binding of data using Angular (for instance) would have been good too. The displaying of a list of elements is very straight forward with Angular, and the binding of values would have potentially made it easier to swap the view of the dates between absolute or relative.
+Retrospectively now, and given the *date display interaction* that I would have had to work on later on, maybe another approach than mustache could have also worked. I think the binding of data using Angular (for instance) would have been good too. The displaying of a list of elements is very straight forward with Angular, and the binding of values would have potentially made it easier to swap the view of the dates between absolute or relative.
 
 The DOM could potentially be more concise.
 
@@ -118,7 +119,7 @@ Writing tests (of course).
 
 Use of twitter API directly (but out of scope for this exercise).
 
-Proper modular/AMD approach (at least separation in different files).
+Better modular approach (at least separation in different files).
 
 Any sort of minifier, SASS, concat of files etc... in order to optimise that list of CSS and JS imports in the HTML.
 
@@ -126,7 +127,7 @@ Any sort of minifier, SASS, concat of files etc... in order to optimise that lis
 
 For the date format swapping, I would have played with two elements in DOM, one hidden one visible, one containing the absolute one containing the relative, and would have played with a CSS rule *:hover* for displaying one or the other.
 
-For modifying the actual state of how to display the dates, I would have, on click, injected a modifier class (in BEM something like tweet--absolute-date) in the #content tag, modifying all the tweet dates at once in CSS.
+For modifying the actual state of how to display the dates, I would have, on click, injected a modifier class (in BEM something like *tweet--absolute-date*) in the *#content* tag, modifying all the tweet dates at once in CSS.
 
 I would have used *localStorage* for keeping the state at refresh, given that we don't have a server that would want this kind of information.
 
@@ -136,4 +137,4 @@ Let's say the data is returned to the FE through a AJAX call, I would have put a
 
 ### Final thoughts
 
-Was good to dev this little test. I am planning on cleaning and finishing it properly. 1 hour was a stressful deadline but I had something on screen at the end. I would have liked to develop a bit more the JS: the URL detection and the localStorage were maybe more interesting to focus on than the CSS.
+It was good to dev this little test. I am planning on cleaning and finishing it properly. 1 hour was a stressful deadline but I had something on screen at the end. I would have liked to develop a bit more the JS: the URL detection and the localStorage were maybe more interesting to focus on than the CSS.
