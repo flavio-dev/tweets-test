@@ -2143,3 +2143,20 @@ var data = [
     "lang": "en"
   }
 ];
+
+
+var dataMangement = function(tweets) {
+
+    var getAllTweets = function() {
+        return tweets;
+    }
+
+    var getLastNTweets = function(n) {
+        return tweets.slice(0, n);
+    }
+
+    return {
+        getAllTweets: getAllTweets,
+        getLastNTweets: getLastNTweets
+    }
+}(data)
